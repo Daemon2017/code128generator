@@ -1,0 +1,6 @@
+Flask~=2.0.3
+Werkzeug~=2.3.6
+waitress~=2.1.2
+code128~=0.3
+pillow~=8.4.0
+flask-cors~=4.0.0

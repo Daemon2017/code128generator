@@ -1,0 +1,94 @@
+{
+	"info": {
+		"_postman_id": "d240945f-963e-4d84-85a3-91bc0929b59a",
+		"name": "code128generator",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Single",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "text",
+						"value": "SI101001",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/generate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"generate"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "list",
+						"value": "SI101001,SI101002,SI101003",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/generate_list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"generate_list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Range",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "prefix",
+						"value": "SI",
+						"type": "default"
+					},
+					{
+						"key": "start",
+						"value": "101001",
+						"type": "default"
+					},
+					{
+						"key": "end",
+						"value": "101005",
+						"type": "default"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/generate_range",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"generate_range"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
