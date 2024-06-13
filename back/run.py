@@ -29,6 +29,8 @@ def generate_list():
     request_id = str(uuid.uuid4())
     create_folder(request_id)
     barcode_texts = request.headers['list'].split(',')
+    if len(barcode_texts) > 100:
+        return None
     for barcode_text in barcode_texts:
         create_image(request_id, barcode_text)
     create_zip(request_id)
@@ -43,6 +45,8 @@ def generate_range():
     prefix = request.headers['prefix']
     start = int(request.headers['start'])
     end = int(request.headers['end'])
+    if end - start > 100:
+        return None
     for i in range(start, end):
         barcode_text = prefix + str(i)
         create_image(request_id, barcode_text)
