@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="#" />
+
+    <title>code128generator</title>
+
+    <script src="js/FileSaver.js"></script>
+    <script src="js/main.js"></script>
+
+    <style>
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .center {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <form style="width: 66%">
+        <div class="center">
+            <h2>code128generator</h2>
+        </div>
+        <div class="row">
+            <div class="column">
+                code128generator это генератор штрих-кодов формата Code 128, которые используются в тестовых наборах FTDNA.
+            </div>
+            <div class="column">
+                code128generator is a generator of Code 128 barcodes used in FTDNA test kits.
+            </div>
+        </div>
+        <div class="row">
+            <div class="column">
+                <label for="modeID">Режим: </label>
+            </div>
+            <div class="column">
+                <label for="modeID">Mode: </label>
+            </div>
+        </div>
+        <div class="center">
+            <select id="modeID" style="width: 100%" onChange="setMode()">
+                <option value="no">---</option>
+                <option value="single">Single</option>
+                <option value="list">List</option>
+                <option value="range">Range</option>
+            </select>
+        </div>
+        <div class="row" id="prefixHeadersID">
+        </div>
+        <div class="row" id="prefixID">
+        </div>
+        <div class="row" id="fromHeadersID">
+        </div>
+        <div class="row" id="fromID">
+        </div>
+        <div class="row" id="toHeadersID">
+        </div>
+        <div class="row" id="toID">
+        </div>
+        <div class="row">
+            <div class="column">
+                Предупреждение: подготовка ответа может занять до 30 секунд. Загрузка
+                ZIP-файла начнется автоматически. Дистанции в файлах указаны в годах.
+            </div>
+            <div class="column">
+                Warning: it may take up to 30 seconds to prepare a response. The
+                download of the ZIP file will start automatically. The distances in the files are given in years.
+            </div>
+        </div>
+        <div>
+            <input type="button" onClick="sendRequest()" value="Generate" style="width: 100%" />
+        </div>
+        <div>
+            <textarea id="errorTextareaID" rows="3" wrap="off" style="width: 100%"></textarea>
+        </div>
+    </form>
+</body>
+
+</html>
