@@ -153,16 +153,16 @@ function sendRequest() {
     var endpoint = ""
     switch (document.getElementById(modeID).value) {
         case 'single':
-            xhr.open("POST", "http://localhost:8080/generate");
+            xhr.open("POST", "https://bba422lhvfiplopgu5cr.containers.yandexcloud.net/generate");
             xhr.setRequestHeader("text", document.getElementById("kitID").value);
             break;
         case 'list':
-            xhr.open("POST", "http://localhost:8080/generate_list");
+            xhr.open("POST", "https://bba422lhvfiplopgu5cr.containers.yandexcloud.net/generate_list");
             var kits = document.getElementById("kitsID").value.replace(/\n/g, ",");
             xhr.setRequestHeader("list", kits);
             break;
         case 'range':
-            xhr.open("POST", "http://localhost:8080/generate_range");
+            xhr.open("POST", "https://bba422lhvfiplopgu5cr.containers.yandexcloud.net/generate_range");
             xhr.setRequestHeader("prefix", document.getElementById("kitPrefixID").value);
             xhr.setRequestHeader("start", document.getElementById("kitFromID").value);
             xhr.setRequestHeader("end", document.getElementById("kitToID").value);
