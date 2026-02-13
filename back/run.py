@@ -18,6 +18,8 @@ def generate():
     request_id = str(uuid.uuid4())
     create_folder(request_id)
     barcode_text = request.headers['text']
+    if request.headers['RemoveSpaces'] == "True":
+        barcode_text = barcode_text.replace(" ", "").replace("\t", "")
     create_image(request_id, barcode_text)
     create_zip(request_id)
     file_path = f'{os.getcwd()}/{request_id}.zip'
@@ -29,6 +31,11 @@ def generate_list():
     request_id = str(uuid.uuid4())
     create_folder(request_id)
     barcode_texts = request.headers['list'].split(',')
+    if request.headers['RemoveSpaces'] == "True":
+        new_barcode_texts = []
+        for barcode_text in barcode_texts:
+            new_barcode_texts.append(barcode_text.replace(" ", "").replace("\t", ""))
+        barcode_texts = new_barcode_texts
     if len(barcode_texts) > 100:
         return None
     for barcode_text in barcode_texts:
@@ -43,6 +50,8 @@ def generate_range():
     request_id = str(uuid.uuid4())
     create_folder(request_id)
     prefix = request.headers['prefix']
+    if request.headers['RemoveSpaces'] == "True":
+        prefix = prefix.replace(" ", "").replace("\t", "")
     start = int(request.headers['start'])
     end = int(request.headers['end'])
     if end - start > 100:
